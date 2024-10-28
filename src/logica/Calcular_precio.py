@@ -5,11 +5,14 @@ class Producto:
 
     def calcular_precio(self, descuento, impuesto):
         # Cálculo del subtotal
-        total = self.precio * self.cantidad
-        # Aplicar el descuento
-        total = total - (total * descuento)
-        # Aplicar el impuesto
-        total = total + (total * impuesto)
+        subtotal = self.precio * self.cantidad
+        # Cálculo del descuento total
+        total_descuento = subtotal * descuento
+        # Cálculo del impuesto total
+        total_impuesto = subtotal * impuesto
+        # Cálculo del precio final
+        total = subtotal - total_descuento + total_impuesto
 
         return total
+
 
